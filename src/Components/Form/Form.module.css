@@ -1,0 +1,109 @@
+* {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+}
+
+.FormDiv {
+    background-color: aquamarine;
+}
+
+h3 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2.8vw;
+    margin: 0;
+    padding: 10px 0;
+}
+
+
+.Form {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    background-color: #eee;
+    border-radius: 5px;
+    margin: 0 auto;
+    padding: 24px 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    
+}
+
+.DivName {
+    grid-column: 1 / 2;
+    grid-row: 1 / 1;
+    width: 90%;
+}
+
+input[name="name"] {
+    margin-bottom: 10px;
+    width: 100%;
+    padding: 6px 2px 6px 6px;
+    font-size: 1.4vw;
+    border-radius: 5px;
+}
+
+.Email {
+    grid-column: 2 / 3;
+    grid-row: 1 / 1;
+    width: 90%;
+}
+
+input[name="email"] {
+    margin-bottom: 10px; 
+    width: 100%; 
+    padding: 6px 2px 6px 6px;
+    font-size: 1.4vw;
+    justify-self: end;
+    border-radius: 5px;
+}
+
+.DivTextarea {
+    grid-column: 1 / 3;
+    grid-row: 2 / 2;
+    width: 100%;
+}
+
+textarea {
+    margin-bottom: 14px;
+    resize: none;
+    width: 100%;
+    height: 160px;
+    padding: 6px 2px 6px 6px;
+    border-radius: 5px;
+}
+
+h5 {
+    margin: 0;
+    text-align: left;
+    padding-bottom: 8px;
+    font-size: 1.5vw;
+}
+
+input[type="button"] {
+    grid-column: 2 / 3;
+    grid-row: 3 / 3;
+    padding: 6px 8px;
+    width: 50%;
+    /* viewport width for responsive font size
+     */
+    font-size: 1.5vw;
+    justify-self: end;
+    border-radius: 25px;
+}
+
+.SocialMedia {
+    margin: 0;
+    padding: 0;
+    width: 50%;
+    margin: 0 auto;
+    padding: 30px 0 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+a {
+    font-size: 4.8vw;  
+}
+

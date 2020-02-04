@@ -1,0 +1,56 @@
+.SkillsMain {
+    display: grid;
+    width: auto;
+    height: auto;
+    grid-template-columns: auto auto auto;
+    grid-template-rows: auto;
+    grid-column-gap: 10%;
+    background-color: brown;
+    padding-bottom: 30px;
+}
+
+.SkillsList {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    justify-self: end;
+}
+
+.ToolsList {
+    grid-column: 2 / 3;
+    grid-row: 1;
+    justify-self:center
+}
+
+.InterestsList {
+    grid-column: 3 / 4;
+    grid-row: 1;
+    justify-self: start;
+}
+
+.SkillsH3 {
+    font-family: 'Heebo', sans-serif;
+    font-size: 2.8vw;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+ul {
+    list-style-type: none;
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    padding-top: 6px;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    padding-bottom: 6px;
+    font-size: 1.8vw;
+}
+
+.InterestsUl {
+    margin-left: 28%;
+}
