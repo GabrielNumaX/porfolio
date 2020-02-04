@@ -9,6 +9,15 @@
     top: 12px;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     /* z-index: 1; */
+}
+
+.HeaderActive {
+    height: 330px;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
 
 }

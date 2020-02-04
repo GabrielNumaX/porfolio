@@ -1,16 +1,38 @@
-import React from 'react';
+import React, {Component} from 'react';
 
 import css from './Header.module.css';
 
-const Header = () => {
+class Header extends Component {
 
-    return(
-        <div className={css.Header}>
-            <i class="fas fa-bars"></i>
-        </div>
-        
-    );
+    constructor(props) {
+        super(props);
 
+        this.state = { addClass: false };
+    }
+
+    toogleHeader() {
+
+        this.setState({addClass: !this.state.addClass});
+
+    }
+
+    render(){
+
+        let cssClass = [css.Header];
+
+        if(this.state.addClass){
+
+            cssClass.push(css.HeaderActive);
+        }
+
+        return(
+            <div className={cssClass.join(' ')} onClick={this.toogleHeader.bind(this)}>
+                <i class="fas fa-bars"></i>
+            </div>
+            
+        );
+
+    }
 }
 
 export default Header;
