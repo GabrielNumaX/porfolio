@@ -12,10 +12,11 @@ const Intro = () => {
             <p>
                 A newly graduate from Argentina that is on his way
                 to become a MERN stack<br/>
-                This year I fully dedicated to improve my Front End skills
+                This past time I've fully dedicated to improve my Front End skills
                 through continuously coding during endless nights <br/>
                 As a result of this on the next section there are some of the
-                relevant projects I have achieved in the course of the year.
+                relevant projects <br/> 
+                I have achieved in the course of the year.
             </p>
         </div>
     );

@@ -38,7 +38,7 @@ h3 {
 input[name="name"] {
     margin-bottom: 10px;
     width: 100%;
-    padding: 6px 2px 6px 6px;
+    padding: 6px 6px 6px 6px;
     font-size: 1.4vw;
     border-radius: 5px;
 }
@@ -87,7 +87,7 @@ input[type="button"] {
     width: 50%;
     /* viewport width for responsive font size
      */
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     justify-self: end;
     border-radius: 25px;
 }

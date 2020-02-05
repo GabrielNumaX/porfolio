@@ -6,7 +6,7 @@ const Footer = () =>{
 
     return(
 
-        <footer>
+        <footer className={css.Footer}>
             <h4 className={css.H4}>NumaX &copy;2019</h4>
         </footer>
     );

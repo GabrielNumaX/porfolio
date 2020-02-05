@@ -1,6 +1,12 @@
 import React, {Component}from 'react';
 
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {faLinkedin, faGithubSquare, faCodepen, faFacebookSquare, faInstagram, faTwitterSquare } from '@fortawesome/free-brands-svg-icons';
+
+import Popup from './Popup';
+
 import css from './Form.module.css';
+
 
 
 class Form extends Component {
@@ -10,11 +16,21 @@ class Form extends Component {
         this.state = { 
             feedback: '', 
             name: '', 
-            email: '' 
+            email: '' ,
+            showPopup: false
             };
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+       
+
     }
+
+    togglePopup() {
+        this.setState({
+          showPopup: !this.state.showPopup
+        });
+      }
 
     handleChange(event, name) {
 
@@ -41,27 +57,31 @@ class Form extends Component {
         const emailInput = document.querySelector('input[name="email"]');
         const textarea = document.querySelector('textarea[name="mailing"]');
 
-        if(textarea === ''){
+        if(textarea.value === ''){
 
-            //aca iria el mensaje del textarea vacio
+            this.togglePopup();
+
+            // console.log('no mail')
         }
-    
-        // this.sendFeedback(templateId, 
-        //     {
-        //         message_html: this.state.feedback, 
-        //         from_name: this.state.name, 
-        //         reply_to: this.state.email
-        //     });
+        else {
+
+            this.sendFeedback(templateId, 
+                {
+                    message_html: this.state.feedback, 
+                    from_name: this.state.name, 
+                    reply_to: this.state.email
+                });
+
+                nameInput.value = '';
+                emailInput.value = '';
+                emailInput.required = false;
+                textarea.value = '';
+
+            // console.log('mail sent')
+                
+        }
 
         
-
-    
-        nameInput.value = '';
-        emailInput.value = '';
-        emailInput.required = false;
-        textarea.value = '';
-
-        console.log('mail sent')
         
       }
     
@@ -79,6 +99,8 @@ class Form extends Component {
     render() {
         return(
             <div className={css.FormDiv}>
+            {/* <div className={css.FormDiv} ref={this.props.formRef}> */}
+            {/* <div className={css.FormDiv} ref={(input) => { this.formRef = input; }}> */}
 
                 <h3>Contact Me</h3>
                 <form className={css.Form}>
@@ -110,6 +132,14 @@ class Form extends Component {
                     </div>
                     
                     <input type="button" value="Send Message" onClick={this.handleSubmit}></input>
+
+                    {this.state.showPopup ? 
+                        <Popup
+                            text='Please enter a message.'
+                            closePopup={this.togglePopup.bind(this)}
+                        />
+                        : null
+                    }
                 </form>
                 
                 <h3>Social Media</h3>
@@ -117,33 +147,39 @@ class Form extends Component {
                 <div className={css.SocialMedia}>
                         
                     <a href="https://www.linkedin.com/in/numax" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-linkedin"></i>
+                        <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
                     </a>
 
                     <a href="https://github.com/GabrielNumaX" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-github-square"></i>
+                        <FontAwesomeIcon icon={faGithubSquare}></FontAwesomeIcon>
                     </a>
 
                     <a href="https://codepen.io/NumaX" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-codepen"></i>
+                        <FontAwesomeIcon icon={faCodepen}></FontAwesomeIcon>
                     </a>
 
                     <a href="https://www.facebook.com/gabriel.numax" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-facebook-square"></i>
+
+                        <FontAwesomeIcon icon={faFacebookSquare}></FontAwesomeIcon>
                     </a>
 
                     <a href="https://www.instagram.com/gabriel.numax" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-instagram"></i>
+                        <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>
                     </a>
 
                     <a href="https://twitter.com/gabrielnumax" target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-twitter-square"></i>
+                        <FontAwesomeIcon icon={faTwitterSquare}></FontAwesomeIcon>
                     </a>
+
                 </div>
             </div>
 
         );//end return
     }//end render
 }//end class
+
+// export default React.forwardRef((props, ref) => <Form 
+// formRef={ref} {...props}
+// />);
 
 export default Form;

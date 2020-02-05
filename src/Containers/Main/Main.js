@@ -12,10 +12,27 @@ import Footer from '../../Components/Footer/Footer';
 
 class Main extends Component {
 
+    constructor(props){
+
+        super(props);
+
+        this.formRef = React.createRef();
+        // this.handleClick = this.handleClick.bind(this);  
+    }
+
+
     render() {
+
+        console.log(this.formRef)
+
         return(
+
             <div>
-                <Header>
+                {/* <Header formRefProp={(e) => this.handleSubmit(e)}>
+                </Header> */}
+
+                <Header formRefProp={this.formRef}>
+                    
                 </Header>
 
                 <Home>
@@ -27,7 +44,7 @@ class Main extends Component {
                 <Skills>
                 </Skills>
 
-                <Form>
+                <Form ref={this.formRef}>
                 </Form>
 
                 <Footer>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {BrowserRouter, Route} from 'react-router-dom';
 
 import Main from './Containers/Main/Main';
-
 import './App.css';
 
 class App extends Component {
