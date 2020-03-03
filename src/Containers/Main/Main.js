@@ -1,5 +1,7 @@
 import React, {Component}from 'react';
 
+import ReactDOM from 'react-dom'
+
 
 import Header from '../../Components/Header/Header';
 import Home from '../../Components/Home/Home';
@@ -16,36 +18,78 @@ class Main extends Component {
 
         super(props);
 
+        this.homeRef = React.createRef();
+        this.introRef = React.createRef();
+        this.skillsRef = React.createRef();
+        this.portfolioRef = React.createRef();
         this.formRef = React.createRef();
-        // this.handleClick = this.handleClick.bind(this);  
+
+        this.scrollToContent = this.scrollToContent.bind(this);  
     }
+
+    scrollToContent(element) {
+
+        switch(element){
+            case 'home':
+                this.homeRef.current.scrollIntoView({behavior: 'smooth'});
+                break;
+            case 'intro':
+                this.introRef.current.scrollIntoView({behavior: 'smooth'});
+                break;
+            case 'skills':
+                this.skillsRef.current.scrollIntoView({behavior: 'smooth'});
+                break;
+            case 'portfolio':
+                this.portfolioRef.current.scrollIntoView({behavior: 'smooth'});
+                break;
+            case 'form':
+                this.formRef.current.scrollIntoView({behavior: 'smooth'});
+                break;
+        }
+      }
 
 
     render() {
 
-        console.log(this.formRef)
+        // console.log(this.formRef)
 
         return(
 
             <div>
-                {/* <Header formRefProp={(e) => this.handleSubmit(e)}>
-                </Header> */}
-
-                <Header formRefProp={this.formRef}>
+            
+                <Header goToComponent={this.scrollToContent}>
                     
                 </Header>
 
-                <Home>
-                </Home>
+                <div ref={this.homeRef}>
+                    <Home>
+                    </Home>
+                </div>
+                
+                {/* <div ref={this.introRef}>
+                    <Intro>
+                    </Intro>
+                </div> */}
 
-                <Intro>
-                </Intro>
+                <div ref={this.introRef}>
+                    <Intro >
 
-                <Skills>
-                </Skills>
+                    </Intro>        
+                </div>
+                
+                
 
-                <Form ref={this.formRef}>
-                </Form>
+                <div ref={this.skillsRef}>
+                    <Skills>
+                    </Skills>
+                </div>
+                
+
+                <div ref={this.formRef}>
+                    <Form>
+                    </Form>
+                </div>
+               
 
                 <Footer>
                 </Footer>

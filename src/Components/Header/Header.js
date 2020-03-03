@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 
+
 import {Link, Route} from 'react-router-dom';
 
 import Form from '../Form/Form';
@@ -31,12 +32,12 @@ class Header extends Component {
         this.setState({hover: !this.state.hover});
     }
 
-    goToForm = () => {
-        // this.props.formRefProp.current.focus();
-        this.props.formRefProp.focus();
+    // goToForm = () => {
+    //     // this.props.propRef.current.focus();
+    //     // this.props.propRef.focus();
 
-        console.log(this.props.formRefProp);      
-      }
+    //     // console.log(this.props.propRef);      
+    //   }
 
     render(){
 
@@ -72,8 +73,6 @@ class Header extends Component {
 
         }
 
-        console.log(this.props.formRefProp);
-
         return(
             <div className={cssClass.join(' ')}>
 
@@ -90,28 +89,32 @@ class Header extends Component {
                      <FontAwesomeIcon icon={faHome}
                                     className={css.Icons}
                                     onMouseEnter={this.iconHover.bind(this)}
-                                    onMouseLeave={this.iconHover.bind(this)}></FontAwesomeIcon>
+                                    onMouseLeave={this.iconHover.bind(this)}
+                                    onClick={() => this.props.goToComponent('home')}></FontAwesomeIcon>
 
                     <p className={HomeHover.join(' ')}>Home</p>
 
                      <FontAwesomeIcon icon={faAddressCard}
                                     className={css.Icons}
                                     onMouseEnter={this.iconHover.bind(this)}
-                                    onMouseLeave={this.iconHover.bind(this)}></FontAwesomeIcon>
+                                    onMouseLeave={this.iconHover.bind(this)}
+                                    onClick={() => this.props.goToComponent('intro')}></FontAwesomeIcon>
 
                     <p className={AddressHover.join(' ')}>Intro</p>
 
                      <FontAwesomeIcon icon={faTools}
                                     className={css.Icons}
                                     onMouseEnter={this.iconHover.bind(this)}
-                                    onMouseLeave={this.iconHover.bind(this)}></FontAwesomeIcon>
+                                    onMouseLeave={this.iconHover.bind(this)}
+                                    onClick={() => this.props.goToComponent('skills')}></FontAwesomeIcon>
 
                     <p className={ToolsHover.join(' ')}>Skills &amp; Tools</p>
 
                      <FontAwesomeIcon icon={faBriefcase}
                                     className={css.Icons}
                                     onMouseEnter={this.iconHover.bind(this)}
-                                    onMouseLeave={this.iconHover.bind(this)}></FontAwesomeIcon>
+                                    onMouseLeave={this.iconHover.bind(this)}
+                                    onClick={() => this.props.goToComponent('porfolio')}></FontAwesomeIcon>
 
                     <p className={BriefcaseHover.join(' ')}>Portfolio</p>
                     
@@ -120,11 +123,10 @@ class Header extends Component {
                                     className={css.Icons}
                                     onMouseEnter={this.iconHover.bind(this)}
                                     onMouseLeave={this.iconHover.bind(this)}
-                                    onClick={this.goToForm}></FontAwesomeIcon>
+                                    onClick={() => this.props.goToComponent('form')}></FontAwesomeIcon>
 
                     <p className={EnvelopeHover.join(' ')}>Contact</p>
                     
-
                  </div>
             </div>
             
